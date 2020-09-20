@@ -9,4 +9,25 @@
     height: 200px;
     border-radius: 10px;
     border: solid 2px;
+    overflow: hidden;
+}
+
+.bookHeader {
+    margin: 0;
+    text-align: center;
+    background-color: rgb(230, 162, 36);
+}
+
+.bookInfo {
+    height: 100%;
+    padding: 20px 0 0 5px;
+    background-color: rgb(245, 168, 27);
+}
+
+.bookHeader > p {
+    margin: 0px;
+}
+
+.bookInfo > p {
+    margin: 0px;
 }
