@@ -52,9 +52,9 @@ function addBook(title, author, pages, read) {
 
 //Get the details of a book
 function getBook() {
-    const title = titleInput.value.toUpperCase();
-    const author = "By " + authorInput.value;
-    const pages = "Pages: " + pagesInput.value;
+    const title = titleInput.value === "" ? "UNTITLED" : titleInput.value.toUpperCase();
+    const author = authorInput.value === "" ? "Author unknown" : "By " + authorInput.value;
+    const pages = pagesInput.value === "" ? "Pages: Unknown" : "Pages: " + pagesInput.value;
     const read = readInput.checked ? "Read" : "Unread";
     addBook(title, author, pages, read);
 }
