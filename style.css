@@ -31,3 +31,12 @@
 .cardInfo > p {
     margin: 0px;
 }
+
+#addCard {
+    background-color: rgb(169, 169, 202);
+}
+
+input {
+    width: 130px;
+    border-radius: 5px;
+}

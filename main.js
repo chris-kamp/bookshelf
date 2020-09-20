@@ -1,6 +1,18 @@
+//Array to store books
 let bookshelf = [];
-const gridContainer = document.getElementById("grid-container");
 
+//References to DOM elements
+const gridContainer = document.getElementById("grid-container");
+const titleInput = document.getElementById("titleInput");
+const authorInput = document.getElementById("authorInput");
+const pagesInput = document.getElementById("pagesInput");
+const readInput = document.getElementById("readInput");
+const addButton = document.getElementById("addButton");
+
+//Event listeners
+addButton.addEventListener("click", getBook);
+
+//Book constructor
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -8,6 +20,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+//Add a new book to the bookshelf
 function addBook(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     const newCard = document.createElement("div");
@@ -33,3 +46,15 @@ function addBook(title, author, pages, read) {
     cardInfo.appendChild(readPara);
     bookshelf.push(newBook);
 }
+
+//Get the details of a book
+function getBook() {
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const pages = pagesInput.value;
+    const read = readInput.checked;
+    addBook(title, author, pages, read);
+}
+
+
+
