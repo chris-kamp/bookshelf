@@ -1,0 +1,12 @@
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-auto-rows: 210px;
+}
+
+.book {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: solid 2px;
+}
