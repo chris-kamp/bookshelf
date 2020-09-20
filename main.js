@@ -10,7 +10,10 @@ const readInput = document.getElementById("readInput");
 const addButton = document.getElementById("addButton");
 
 //Event listeners
-addButton.addEventListener("click", getBook);
+addButton.addEventListener("click", () => {
+    getBook();
+    clearForm();
+} );
 
 //Book constructor
 function Book(title, author, pages, read) {
@@ -56,5 +59,11 @@ function getBook() {
     addBook(title, author, pages, read);
 }
 
-
+//Clear the submission form
+function clearForm() {
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    readInput.checked = false;
+}
 
