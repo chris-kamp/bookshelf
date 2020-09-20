@@ -4,7 +4,7 @@
     grid-auto-rows: 210px;
 }
 
-.book {
+.card {
     width: 200px;
     height: 200px;
     border-radius: 10px;
@@ -12,22 +12,22 @@
     overflow: hidden;
 }
 
-.bookHeader {
+.cardHeader {
     margin: 0;
     text-align: center;
     background-color: rgb(230, 162, 36);
 }
 
-.bookInfo {
+.cardInfo {
     height: 100%;
     padding: 20px 0 0 5px;
     background-color: rgb(245, 168, 27);
 }
 
-.bookHeader > p {
+.cardHeader > p {
     margin: 0px;
 }
 
-.bookInfo > p {
+.cardInfo > p {
     margin: 0px;
 }
