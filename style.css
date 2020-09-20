@@ -40,3 +40,7 @@ input {
     width: 130px;
     border-radius: 5px;
 }
+
+.formButton {
+    width: 60px;
+}

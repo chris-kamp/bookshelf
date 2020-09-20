@@ -8,12 +8,15 @@ const authorInput = document.getElementById("authorInput");
 const pagesInput = document.getElementById("pagesInput");
 const readInput = document.getElementById("readInput");
 const addButton = document.getElementById("addButton");
+const clearButton = document.getElementById("clearButton");
 
 //Event listeners
 addButton.addEventListener("click", () => {
     getBook();
     clearForm();
 } );
+
+clearButton.addEventListener("click", clearForm);
 
 //Book constructor
 function Book(title, author, pages, read) {
