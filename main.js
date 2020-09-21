@@ -12,7 +12,7 @@ const clearButton = document.getElementById("clearButton");
 
 //Event listeners
 addButton.addEventListener("click", () => {
-    getBook();
+    addBook();
     clearForm();
 } );
 
@@ -32,9 +32,26 @@ Book.prototype.toggleRead = function () {
     updateDisplay();
 }
 
+
 //Add a new book to the bookshelf
-function addBook(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
+function addBook() {
+    createCard();
+    getBook();
+    updateDisplay();
+}
+
+//Get the details of a book
+function getBook() {
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const pages = pagesInput.value;
+    const read = readInput.checked;
+    bookshelf.push(new Book(title, author, pages, read));
+}
+
+//Create a new blank card
+//Note the reference to bookshelf.length assumes the card is being created before the book that is associated with the card
+function createCard() {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.setAttribute("data-index", bookshelf.length);
@@ -42,27 +59,21 @@ function addBook(title, author, pages, read) {
     cardHeader.classList.add("cardHeader");
     const titlePara = document.createElement("p");
     titlePara.classList.add("titlePara");
-    titlePara.textContent = newBook.title;
     const authorPara = document.createElement("p");
     authorPara.classList.add("authorPara");
-    authorPara.textContent = newBook.author;
     const cardInfo = document.createElement("div");
     cardInfo.classList.add("cardInfo");
     const pagesPara = document.createElement("p");
     pagesPara.classList.add("pagesPara");
-    pagesPara.textContent = newBook.pages;
     const readPara = document.createElement("p");
     readPara.classList.add("readPara");
-    readPara.textContent = "Read? " + newBook.read;
     const readButton = document.createElement("button");
-
+    readButton.textContent = "Toggle read";
     //When the toggle read button is clicked, toggle whether the relevant book has been read
     readButton.addEventListener("click", (e) => {
         const index = e.target.parentElement.parentElement.getAttribute("data-index");
         bookshelf[index].toggleRead();
     });
-
-    readButton.textContent = "Toggle read";
     gridContainer.appendChild(newCard);
     newCard.appendChild(cardHeader);
     cardHeader.appendChild(titlePara);
@@ -70,17 +81,7 @@ function addBook(title, author, pages, read) {
     newCard.appendChild(cardInfo);
     cardInfo.appendChild(pagesPara);
     cardInfo.appendChild(readPara);
-    cardInfo.appendChild(readButton);
-    bookshelf.push(newBook);
-}
-
-//Get the details of a book
-function getBook() {
-    const title = titleInput.value === "" ? "UNTITLED" : titleInput.value.toUpperCase();
-    const author = authorInput.value === "" ? "Author unknown" : "By " + authorInput.value;
-    const pages = pagesInput.value === "" ? "Pages: Unknown" : "Pages: " + pagesInput.value;
-    const read = readInput.checked;
-    addBook(title, author, pages, read);
+    cardInfo.appendChild(readButton);   
 }
 
 //Clear the submission form
@@ -104,11 +105,10 @@ function updateDisplay() {
         const pagesPara = card.getElementsByClassName("pagesPara");
         const readPara = card.getElementsByClassName("readPara");
         
-        titlePara[0].textContent = bookshelf[index].title;
-        authorPara[0].textContent = bookshelf[index].author;
-        pagesPara[0].textContent = bookshelf[index].pages;
-        readPara[0].textContent = bookshelf[index].read;
-    })
-
+        titlePara[0].textContent = bookshelf[index].title === "" ? "UNTITLED" : bookshelf[index].title.toUpperCase();
+        authorPara[0].textContent = bookshelf[index].author === "" ? "Author unknown" : "By " + bookshelf[index].author;
+        pagesPara[0].textContent = bookshelf[index].pages === "" ? "Pages: Unknown" : "Pages: " + bookshelf[index].pages;
+        readPara[0].textContent = bookshelf[index].read ? "Read" : "Unread";
+    });
 }
 
