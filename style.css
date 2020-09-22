@@ -12,10 +12,38 @@
     overflow: hidden;
 }
 
+#subForm {
+    background-color: rgb(169, 169, 202);
+}
+
+#formHeaderRow {
+    text-align: center;
+    padding: 5px 0 0 0;
+    height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(10, 10, 10);
+    background-color: rgb(142, 142, 185);
+    box-sizing: border-box;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 10px 5px 0 5px;
+}
+
+#formButtonRow {
+    text-align: center;
+}
+
 .cardHeader {
     margin: 0;
     text-align: center;
-    background-color: rgb(230, 162, 36);
+    background-color: rgb(219, 152, 28);
+    height: 40px;
 }
 
 .cardInfo {
@@ -32,15 +60,17 @@
     margin: 0px;
 }
 
-#addCard {
-    background-color: rgb(169, 169, 202);
+.textInput {
+    width: 125px;
+    height: 15px;
+    border-radius: 5px;
+    border: solid 1px;
 }
 
-input {
-    width: 130px;
-    border-radius: 5px;
-}
 
 .formButton {
     width: 60px;
+    height: 22px;
+    border-radius: 5px;
+    border: solid 1px;
 }

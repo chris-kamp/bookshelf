@@ -7,19 +7,30 @@
     <body>
         <main>
             <div id="grid-container">
-                <div class="card" id="addCard">
-                    <form>
-                        <label for="titleInput">Title: </label>
-                        <input type="text" id="titleInput" name="titleInput">
-                        <label for="authorInput">Author: </label>
-                        <input type="text" id="authorInput" name="authorInput">
-                        <label for="pagesInput">Pages: </label>
-                        <input type="text" id="pagesInput" name="pagesInput">
-                        <label for="readInput">Read? </label>
-                        <input type="checkbox" id="readInput" name="readInput">
+                <div class="card" id="subForm">
+                    <div id="formHeaderRow">
+                        <span>ADD A BOOK</span>
+                    </div>
+                    <div class="formRow">
+                        <span id="titleSpan">Title: </span>
+                        <input type="text" id="titleInput" class="textInput">
+                    </div>
+                    <div class="formRow">
+                        <span>Author: </span>
+                        <input type="text" id="authorInput" class="textInput">
+                    </div>
+                    <div class="formRow">
+                        <span>Pages: </span>
+                        <input type="text" id="pagesInput" class="textInput">
+                    </div>
+                    <div class="formRow">
+                        <span>Read? </span>
+                        <input type="checkbox" id="readInput">
+                    </div>
+                    <div id="formButtonRow">
                         <input type="button" id="addButton" value="Add" class="formButton">
                         <input type="button" id="clearButton" value="Clear" class="formButton">
-                    </form>
+                    </div>
                 </div>
             </div>
             
