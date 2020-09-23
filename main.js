@@ -10,12 +10,13 @@ const readInput = document.getElementById("readInput");
 const addButton = document.getElementById("addButton");
 const clearButton = document.getElementById("clearButton");
 
-//Event listeners
+//Add button adds a book to the bookshelf and clears the form
 addButton.addEventListener("click", () => {
     addBook();
     clearForm();
 } );
 
+//Clear button clears the form
 clearButton.addEventListener("click", clearForm);
 
 //Book constructor
