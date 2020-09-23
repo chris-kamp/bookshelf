@@ -12,9 +12,22 @@ const clearButton = document.getElementById("clearButton");
 
 //Add button adds a book to the bookshelf and clears the form
 addButton.addEventListener("click", () => {
-    addBook();
-    clearForm();
+    if(validateSubmission()) {
+        addBook();
+        clearForm();
+    } else {
+        titleInput.style.borderColor = "red";
+    }
 } );
+
+//Validate the data in the submission form
+function validateSubmission() {
+    if(titleInput.value === "") {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 //Clear button clears the form
 clearButton.addEventListener("click", clearForm);
@@ -120,6 +133,7 @@ function clearForm() {
     authorInput.value = "";
     pagesInput.value = "";
     readInput.checked = false;
+    titleInput.style.borderColor = "black";
 }
 
 //Update the display of each card
