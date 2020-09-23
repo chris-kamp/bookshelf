@@ -58,6 +58,8 @@ function createCard() {
 
     const cardHeader = document.createElement("div");
     cardHeader.classList.add("cardHeader");
+    const headerRow = document.createElement("div");
+    headerRow.classList.add("headerRow");
     const titlePara = document.createElement("p");
     titlePara.classList.add("titlePara");
     const authorPara = document.createElement("p");
@@ -88,8 +90,9 @@ function createCard() {
     });
     gridContainer.appendChild(newCard);
     newCard.appendChild(cardHeader);
-    cardHeader.appendChild(titlePara);
-    cardHeader.appendChild(authorPara);
+    cardHeader.appendChild(headerRow);
+    headerRow.appendChild(titlePara);
+    headerRow.appendChild(authorPara);
     newCard.appendChild(cardInfo);
     cardInfo.appendChild(row1);
     row1.appendChild(pagesLabel);

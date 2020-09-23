@@ -40,26 +40,34 @@
 }
 
 .cardHeader {
-    margin: 0;
-    text-align: center;
     background-color: rgb(219, 152, 28);
-    height: 40px;
-    padding: 5px 0 0 0;
+    height: 60px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerRow {
+    max-width: 200px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px 5px;
 }
 
 .titlePara {
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 1em;
     font-weight: bold;
     margin: 0;
     padding: 0;
+    word-wrap: break-word;
 }
 
 .authorPara {
     margin: 0;
     padding: 0;
-    font-size: 13px;
+    font-size: 11px;
     line-height: 1em;
     font-weight: bold;
 }
@@ -87,7 +95,7 @@
 }
 
 .buttonRow {
-    height: 80px;
+    height: 65px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
