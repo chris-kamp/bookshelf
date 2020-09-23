@@ -4,14 +4,6 @@
     grid-auto-rows: 210px;
 }
 
-.card {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    border: solid 2px;
-    overflow: hidden;
-}
-
 #subForm {
     background-color: rgb(169, 169, 202);
 }
@@ -39,25 +31,52 @@
     text-align: center;
 }
 
+.card {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: solid 2px;
+    overflow: hidden;
+}
+
 .cardHeader {
     margin: 0;
     text-align: center;
     background-color: rgb(219, 152, 28);
     height: 40px;
+    padding: 5px 0 0 0;
+    box-sizing: border-box;
+}
+
+.titlePara {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.authorPara {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1em;
+    font-weight: bold;
 }
 
 .cardInfo {
+    margin: 0;
     height: 100%;
-    padding: 20px 0 0 5px;
+    padding: 5px 0 0 5px;
     background-color: rgb(245, 168, 27);
 }
 
-.cardHeader > p {
-    margin: 0px;
-}
-
-.cardInfo > p {
-    margin: 0px;
+.cardRow {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 10px 5px 0 5px;
 }
 
 .textInput {
@@ -67,6 +86,17 @@
     border: solid 1px;
 }
 
+.buttonRow {
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 0 10px 0;
+}
+
+.readButton {
+    height: 22px;
+}
 
 .formButton {
     width: 60px;

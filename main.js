@@ -55,6 +55,7 @@ function createCard() {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.setAttribute("data-index", bookshelf.length);
+
     const cardHeader = document.createElement("div");
     cardHeader.classList.add("cardHeader");
     const titlePara = document.createElement("p");
@@ -63,15 +64,26 @@ function createCard() {
     authorPara.classList.add("authorPara");
     const cardInfo = document.createElement("div");
     cardInfo.classList.add("cardInfo");
-    const pagesPara = document.createElement("p");
-    pagesPara.classList.add("pagesPara");
-    const readPara = document.createElement("p");
-    readPara.classList.add("readPara");
+    const row1 = document.createElement("div");
+    row1.classList.add("cardRow");
+    const pagesLabel = document.createElement("span");
+    pagesLabel.textContent = "Pages: ";
+    const pagesContent = document.createElement("span");
+    pagesContent.classList.add("pagesContent");
+    const row2 = document.createElement("div");
+    row2.classList.add("cardRow");
+    const readLabel = document.createElement("span");
+    readLabel.textContent = "Status: ";
+    const readContent = document.createElement("span");
+    readContent.classList.add("readContent");
+    const buttonRow = document.createElement("div");
+    buttonRow.classList.add("buttonRow");
     const readButton = document.createElement("button");
+    readButton.classList.add("readButton");
     readButton.textContent = "Toggle read";
     //When the toggle read button is clicked, toggle whether the relevant book has been read
     readButton.addEventListener("click", (e) => {
-        const index = e.target.parentElement.parentElement.getAttribute("data-index");
+        const index = e.target.parentElement.parentElement.parentElement.getAttribute("data-index");
         bookshelf[index].toggleRead();
     });
     gridContainer.appendChild(newCard);
@@ -79,9 +91,14 @@ function createCard() {
     cardHeader.appendChild(titlePara);
     cardHeader.appendChild(authorPara);
     newCard.appendChild(cardInfo);
-    cardInfo.appendChild(pagesPara);
-    cardInfo.appendChild(readPara);
-    cardInfo.appendChild(readButton);   
+    cardInfo.appendChild(row1);
+    row1.appendChild(pagesLabel);
+    row1.appendChild(pagesContent);
+    cardInfo.appendChild(row2);
+    row2.appendChild(readLabel);
+    row2.appendChild(readContent);
+    cardInfo.appendChild(buttonRow);
+    buttonRow.appendChild(readButton);   
 }
 
 //Clear the submission form
@@ -102,13 +119,13 @@ function updateDisplay() {
         }
         const titlePara = card.getElementsByClassName("titlePara");
         const authorPara = card.getElementsByClassName("authorPara");
-        const pagesPara = card.getElementsByClassName("pagesPara");
-        const readPara = card.getElementsByClassName("readPara");
+        const pagesContent = card.getElementsByClassName("pagesContent");
+        const readContent = card.getElementsByClassName("readContent");
         
         titlePara[0].textContent = bookshelf[index].title === "" ? "UNTITLED" : bookshelf[index].title.toUpperCase();
-        authorPara[0].textContent = bookshelf[index].author === "" ? "Author unknown" : "By " + bookshelf[index].author;
-        pagesPara[0].textContent = bookshelf[index].pages === "" ? "Pages: Unknown" : "Pages: " + bookshelf[index].pages;
-        readPara[0].textContent = bookshelf[index].read ? "Read" : "Unread";
+        authorPara[0].textContent = bookshelf[index].author === "" ? "AUTHOR UNKNOWN" : "BY " + bookshelf[index].author.toUpperCase();
+        pagesContent[0].textContent = bookshelf[index].pages === "" ? "Unknown" : bookshelf[index].pages;
+        readContent[0].textContent = bookshelf[index].read ? "Read" : "Unread";
     });
 }
 
