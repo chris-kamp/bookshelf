@@ -56,7 +56,7 @@
 }
 
 .titlePara {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1em;
     font-weight: bold;
     margin: 0;
@@ -67,7 +67,7 @@
 .authorPara {
     margin: 0;
     padding: 0;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1em;
     font-weight: bold;
 }

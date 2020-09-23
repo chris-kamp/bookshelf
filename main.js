@@ -127,6 +127,10 @@ function updateDisplay() {
         
         titlePara[0].textContent = bookshelf[index].title === "" ? "UNTITLED" : bookshelf[index].title.toUpperCase();
         authorPara[0].textContent = bookshelf[index].author === "" ? "AUTHOR UNKNOWN" : "BY " + bookshelf[index].author.toUpperCase();
+        if(bookshelf[index].title.length > 20) {
+            titlePara[0].style.fontSize = "13px";
+            authorPara[0].style.fontSize="11px";
+        }
         pagesContent[0].textContent = bookshelf[index].pages === "" ? "Unknown" : bookshelf[index].pages;
         readContent[0].textContent = bookshelf[index].read ? "Read" : "Unread";
     });
