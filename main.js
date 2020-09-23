@@ -49,6 +49,15 @@ function getBook() {
     bookshelf.push(new Book(title, author, pages, read));
 }
 
+//Limit pages field to numerical input
+pagesInput.addEventListener("input", (e) => {
+    const num = /[0-9]/;
+    if(e.data && e.data.search(num) === -1) {
+        e.target.value = e.target.value.slice(0, -1);
+    }
+})
+
+
 //Create a new blank card
 //Note the reference to bookshelf.length assumes the card is being created before the book that is associated with the card
 function createCard() {
