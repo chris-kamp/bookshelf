@@ -71,60 +71,192 @@ pagesInput.addEventListener("input", (e) => {
     }
 })
 
+//A utility function to create elements
+function createElement(args) {
+    const element = document.createElement(args.tag);
+
+    if(args.hasOwnProperty("classes")) {
+        args.classes.forEach(className => {
+            element.classList.add(className);
+        });
+    }
+
+    if(args.hasOwnProperty("attributes")) {
+        args.attributes.forEach(attribute => {
+            element.setAttribute(attribute.type, attribute.value);
+        });
+    }
+
+    if(args.hasOwnProperty("textContent")) {
+        element.textContent = args.textContent;
+    }
+
+    if(args.hasOwnProperty("eventListener")) {
+        element.addEventListener(args.eventListener.type, args.eventListener.callback);
+    }
+
+    if(args.hasOwnProperty("parent")) {
+        args.parent.appendChild(element);
+    }
+
+    return element;
+}
 
 //Create a new blank card
 //Note the reference to bookshelf.length assumes the card is being created before the book that is associated with the card
+//Indented to show element hierarchy
 function createCard() {
-    const newCard = document.createElement("div");
-    newCard.classList.add("card");
-    newCard.setAttribute("data-index", bookshelf.length);
 
-    const cardHeader = document.createElement("div");
-    cardHeader.classList.add("cardHeader");
-    const headerRow = document.createElement("div");
-    headerRow.classList.add("headerRow");
-    const titlePara = document.createElement("p");
-    titlePara.classList.add("titlePara");
-    const authorPara = document.createElement("p");
-    authorPara.classList.add("authorPara");
-    const cardInfo = document.createElement("div");
-    cardInfo.classList.add("cardInfo");
-    const row1 = document.createElement("div");
-    row1.classList.add("cardRow");
-    const pagesLabel = document.createElement("span");
-    pagesLabel.textContent = "Pages: ";
-    const pagesContent = document.createElement("span");
-    pagesContent.classList.add("pagesContent");
-    const row2 = document.createElement("div");
-    row2.classList.add("cardRow");
-    const readLabel = document.createElement("span");
-    readLabel.textContent = "Status: ";
-    const readContent = document.createElement("span");
-    readContent.classList.add("readContent");
-    const buttonRow = document.createElement("div");
-    buttonRow.classList.add("buttonRow");
-    const readButton = document.createElement("button");
-    readButton.classList.add("readButton");
-    readButton.textContent = "Toggle read";
-    //When the toggle read button is clicked, toggle whether the relevant book has been read
-    readButton.addEventListener("click", (e) => {
-        const index = e.target.parentElement.parentElement.parentElement.getAttribute("data-index");
-        bookshelf[index].toggleRead();
+    const newCard = createElement({
+        tag: "div",
+        classes: ["card"],
+        attributes: [{
+            type: "data-index",
+            value: bookshelf.length
+        }],
+        parent: gridContainer
     });
-    gridContainer.appendChild(newCard);
-    newCard.appendChild(cardHeader);
-    cardHeader.appendChild(headerRow);
-    headerRow.appendChild(titlePara);
-    headerRow.appendChild(authorPara);
-    newCard.appendChild(cardInfo);
-    cardInfo.appendChild(row1);
-    row1.appendChild(pagesLabel);
-    row1.appendChild(pagesContent);
-    cardInfo.appendChild(row2);
-    row2.appendChild(readLabel);
-    row2.appendChild(readContent);
-    cardInfo.appendChild(buttonRow);
-    buttonRow.appendChild(readButton);   
+
+        const cardHeader = createElement({
+            tag: "div",
+            classes: ["cardHeader"],
+            attributes: [{
+                type: "data-index",
+                value: bookshelf.length
+            }],
+            parent: newCard
+        });
+
+            const headerRow = createElement({
+                tag: "div",
+                classes: ["headerRow"],
+                attributes: [{
+                    type: "data-index",
+                    value: bookshelf.length
+                }],
+                parent: cardHeader
+            });
+
+                const titlePara = createElement({
+                    tag: "p",
+                    classes: ["titlePara"],
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    parent: headerRow
+                });
+
+                const authorPara = createElement({
+                    tag: "p",
+                    classes: ["authorPara"],
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    parent: headerRow
+                });
+
+        const cardInfo = createElement({
+            tag: "div",
+            classes: ["cardInfo"],
+            attributes: [{
+                type: "data-index",
+                value: bookshelf.length
+            }],
+            parent: newCard
+        });
+
+            const row1 = createElement({
+                tag: "div",
+                classes: ["cardRow"],
+                attributes: [{
+                    type: "data-index",
+                    value: bookshelf.length
+                }],
+                parent: cardInfo
+            });
+
+                const pagesLabel = createElement({
+                    tag: "span",
+                    classes: ["pagesLabel"],
+                    textContent: "Pages: ",
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    parent: row1
+                });
+
+                const pagesContent = createElement({
+                    tag: "span",
+                    classes: ["pagesContent"],
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    parent: row1
+                });
+
+            const row2 = createElement({
+                tag: "div",
+                classes: ["cardRow"],
+                attributes: [{
+                    type: "data-index",
+                    value: bookshelf.length
+                }],
+                parent: cardInfo
+            });
+
+                const readLabel = createElement({
+                    tag: "span",
+                    classes: ["readLabel"],
+                    textContent: "Status: ",
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    parent: row2
+                });
+
+                const readContent = createElement({
+                    tag: "span",
+                    classes: ["readContent"],
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    parent: row2
+                });
+
+            const buttonRow = createElement({
+                tag: "div",
+                classes: ["buttonRow"],
+                attributes: [{
+                    type: "data-index",
+                    value: bookshelf.length
+                }],
+                parent: cardInfo
+            });
+
+                const readbutton = createElement({
+                    tag: "button",
+                    classes: ["readButton"],
+                    textContent: "Toggle read",
+                    attributes: [{
+                        type: "data-index",
+                        value: bookshelf.length
+                    }],
+                    eventListener: {
+                        type: "click",
+                        callback: (e) => {
+                            const index = e.target.getAttribute("data-index");
+                            bookshelf[index].toggleRead();
+                            updateDisplay();
+                        }
+                    },
+                    parent: buttonRow
+                });
 }
 
 //Clear the submission form
@@ -144,6 +276,8 @@ function updateDisplay() {
         if(!index) {
             return;
         }
+        const cardHeader = card.getElementsByClassName("cardHeader");
+        const cardInfo = card.getElementsByClassName("cardInfo");
         const titlePara = card.getElementsByClassName("titlePara");
         const authorPara = card.getElementsByClassName("authorPara");
         const pagesContent = card.getElementsByClassName("pagesContent");
@@ -157,6 +291,34 @@ function updateDisplay() {
         }
         pagesContent[0].textContent = bookshelf[index].pages === "" ? "Unknown" : bookshelf[index].pages;
         readContent[0].textContent = bookshelf[index].read ? "Read" : "Unread";
+
+        if(bookshelf[index].read) {
+            if(cardHeader[0].classList.contains("cardHeaderUnread")) {
+                cardHeader[0].classList.remove("cardHeaderUnread");
+            }
+            if(!(cardHeader[0].classList.contains("cardHeaderRead"))) {
+                cardHeader[0].classList.add("cardHeaderRead");
+            }
+            if(cardInfo[0].classList.contains("cardInfoUnread")) {
+                cardInfo[0].classList.remove("cardInfoUnread");
+            }
+            if(!(cardInfo[0].classList.contains("cardInfoRead"))) {
+                cardInfo[0].classList.add("cardInfoRead");
+            }
+        } else {
+            if(cardHeader[0].classList.contains("cardHeaderRead")) {
+                cardHeader[0].classList.remove("cardHeaderRead");
+            }
+            if(!(cardHeader[0].classList.contains("cardHeaderUnread"))) {
+                cardHeader[0].classList.add("cardHeaderUnread");
+            }  
+            if(cardInfo[0].classList.contains("cardInfoRead")) {
+                cardInfo[0].classList.remove("cardInfoRead");
+            }
+            if(!(cardInfo[0].classList.contains("cardInfoUnread"))) {
+                cardInfo[0].classList.add("cardInfoUnread");
+            }  
+        }
     });
 }
 

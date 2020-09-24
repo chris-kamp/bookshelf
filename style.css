@@ -1,3 +1,15 @@
+body {
+    background-color: #cacaa9;
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #331a22;
+    text-decoration: underline;
+}
+
 #grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 210px);
@@ -5,7 +17,8 @@
 }
 
 #subForm {
-    background-color: rgb(169, 169, 202);
+    background-color: #a9a9ca;
+    color:  #331a22;
 }
 
 #formHeaderRow {
@@ -14,7 +27,6 @@
     height: 40px;
     font-size: 25px;
     font-weight: bold;
-    color: rgb(10, 10, 10);
     background-color: rgb(142, 142, 185);
     box-sizing: border-box;
 }
@@ -32,6 +44,7 @@
 }
 
 .card {
+    color:  #331a22;
     width: 200px;
     height: 200px;
     border-radius: 10px;
@@ -40,12 +53,24 @@
 }
 
 .cardHeader {
-    background-color: rgb(219, 152, 28);
     height: 60px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cardHeaderRead {
+    background-color: #91b991;
+}
+.cardHeaderUnread {
+    background-color: #bd9494;
+}
+.cardInfoRead {
+    background-color: #a9caa9;
+}
+.cardInfoUnread {
+    background-color: #caa9a9;
 }
 
 .headerRow {
@@ -76,7 +101,7 @@
     margin: 0;
     height: 100%;
     padding: 5px 0 0 5px;
-    background-color: rgb(245, 168, 27);
+    font-size: 15px;
 }
 
 .cardRow {
