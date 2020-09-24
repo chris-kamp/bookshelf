@@ -1,4 +1,4 @@
-# bookshelf
+# Bookshelf
 The Odin Project - "Library" assignment
 
 # Learning outcomes
