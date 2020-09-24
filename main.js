@@ -120,60 +120,36 @@ function createCard() {
         const cardHeader = createElement({
             tag: "div",
             classes: ["cardHeader"],
-            attributes: [{
-                type: "data-index",
-                value: bookshelf.length
-            }],
             parent: newCard
         });
 
             const headerRow = createElement({
                 tag: "div",
                 classes: ["headerRow"],
-                attributes: [{
-                    type: "data-index",
-                    value: bookshelf.length
-                }],
                 parent: cardHeader
             });
 
                 const titlePara = createElement({
                     tag: "p",
                     classes: ["titlePara"],
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     parent: headerRow
                 });
 
                 const authorPara = createElement({
                     tag: "p",
                     classes: ["authorPara"],
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     parent: headerRow
                 });
 
         const cardInfo = createElement({
             tag: "div",
             classes: ["cardInfo"],
-            attributes: [{
-                type: "data-index",
-                value: bookshelf.length
-            }],
             parent: newCard
         });
 
             const row1 = createElement({
                 tag: "div",
                 classes: ["cardRow"],
-                attributes: [{
-                    type: "data-index",
-                    value: bookshelf.length
-                }],
                 parent: cardInfo
             });
 
@@ -181,30 +157,18 @@ function createCard() {
                     tag: "span",
                     classes: ["pagesLabel"],
                     textContent: "Pages: ",
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     parent: row1
                 });
 
                 const pagesContent = createElement({
                     tag: "span",
                     classes: ["pagesContent"],
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     parent: row1
                 });
 
             const row2 = createElement({
                 tag: "div",
                 classes: ["cardRow"],
-                attributes: [{
-                    type: "data-index",
-                    value: bookshelf.length
-                }],
                 parent: cardInfo
             });
 
@@ -212,30 +176,18 @@ function createCard() {
                     tag: "span",
                     classes: ["readLabel"],
                     textContent: "Status: ",
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     parent: row2
                 });
 
                 const readContent = createElement({
                     tag: "span",
                     classes: ["readContent"],
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     parent: row2
                 });
 
             const buttonRow = createElement({
                 tag: "div",
                 classes: ["buttonRow"],
-                attributes: [{
-                    type: "data-index",
-                    value: bookshelf.length
-                }],
                 parent: cardInfo
             });
 
@@ -243,10 +195,6 @@ function createCard() {
                     tag: "button",
                     classes: ["readButton"],
                     textContent: "Toggle read",
-                    attributes: [{
-                        type: "data-index",
-                        value: bookshelf.length
-                    }],
                     eventListener: {
                         type: "click",
                         callback: (e) => {
@@ -257,6 +205,12 @@ function createCard() {
                     },
                     parent: buttonRow
                 });
+
+    const children = Array.from(newCard.querySelectorAll("*"));
+    children.forEach(child => {
+        child.setAttribute("data-index", bookshelf.length);
+    });
+
 }
 
 //Clear the submission form
