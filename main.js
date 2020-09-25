@@ -222,6 +222,26 @@ function clearForm() {
     titleInput.style.borderColor = "black";
 }
 
+//Delete a book and its corresponding card
+function deleteBook(index) {
+    const deletedElements = document.querySelectorAll('[data-index="' + index + "\"");
+    deletedElements.forEach(element => {
+       element.parentNode.removeChild(element); 
+    });
+    bookshelf.splice(index, 1);
+    const remainingCards = document.querySelectorAll(".card[data-index]");
+    remainingCards.forEach(card => {
+        const dataIndex = card.getAttribute("data-index");
+        if(dataIndex > index) {
+            card.setAttribute("data-index", (dataIndex - 1));
+            const elements = card.querySelectorAll("*");
+            elements.forEach(element => {
+                element.setAttribute("data-index", (dataIndex - 1));
+            });
+        }
+    });
+}
+
 //Update the display of each card
 function updateDisplay() {
     const cards = Array.from(document.getElementsByClassName("card"));
