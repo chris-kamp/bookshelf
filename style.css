@@ -50,6 +50,7 @@ h1 {
     border-radius: 10px;
     border: solid 2px;
     overflow: hidden;
+    position: relative;
 }
 
 .cardHeader {
@@ -78,6 +79,15 @@ h1 {
     box-sizing: border-box;
     text-align: center;
     padding: 5px 5px;
+    position: relative;
+}
+
+.deleteButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    background-color: rgb(196, 46, 46);
 }
 
 .titlePara {

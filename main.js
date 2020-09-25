@@ -117,6 +117,20 @@ function createCard() {
         parent: gridContainer
     });
 
+        const deleteButton = createElement({
+            tag: "button",
+            classes: ["deleteButton"],
+            textContent: "X",
+            eventListener: {
+                type: "click",
+                callback: (e) => {
+                    const index = e.target.getAttribute("data-index");
+                    deleteBook(index);
+                }
+            },
+            parent: newCard
+        })
+
         const cardHeader = createElement({
             tag: "div",
             classes: ["cardHeader"],
