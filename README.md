@@ -10,3 +10,4 @@ user interface.
 There are a number of areas that could be improved if I were to devote further time to this project. For example:
 - The visual design and layout could be improved. A more appealing font could be used, layout and spacing of cards could be improved to reduce blank space, etc.
 - Additional fields could be added, eg. to give a rating to books.
+- Code for re-indexing after deleting cards could be improved. Iterating over all elements is probably not the most efficient way to accomplish this.
